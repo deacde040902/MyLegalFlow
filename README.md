@@ -137,16 +137,18 @@ spring:
 ## 📸 项目截图
 
 ### 首页
-![首页](screenshots/home.png)
+
+
 
 ### 法律问答
-![法律问答](screenshots/qa.png)
+<img width="1230" height="831" alt="image" src="https://github.com/user-attachments/assets/50d96ad5-449b-45e5-84ba-0a5907c5a911" />
 
 ### 合同风险分析
-![合同风险分析](screenshots/risk-analysis.png)
+<img width="1252" height="855" alt="image" src="https://github.com/user-attachments/assets/a1d6d464-ec2e-466c-a8eb-564fd85e1cea" />
+![Uploading image.png…]()
 
 ### 知识库
-![知识库](screenshots/knowledge.png)
+![Uploading image.png…]()
 
 ## ⚠️ 免责声明
 
@@ -157,9 +159,4 @@ spring:
 MIT License
 
 ## 👨‍💻 作者
-
 deacde040902
-
-## 🙏 致谢
-
-感谢 Spring AI、Vue 3、Element Plus 等开源项目的支持。

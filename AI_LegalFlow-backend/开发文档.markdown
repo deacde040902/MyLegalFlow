@@ -1,0 +1,44 @@
+# LegalFlow: 多智能体协同法律工作流系统
+
+## 1. 项目概述
+基于 Spring Boot 3.x + Spring AI 1.1 + 向量数据库 + 大模型，构建一套由多个专职智能体（Agent）协同完成复杂法律任务的系统。核心工作流包括合同审查、法律问答、法规检索、报告生成等。
+
+**目标**：用户通过自然语言提交任务（如“审查这份劳动合同的竞业限制风险”），系统自动拆解任务，调用不同智能体，最终输出结构化结果。
+
+## 2. 技术栈要求
+- 后端框架：Spring Boot 3.2+，Java 17
+- AI 框架：Spring AI 1.1.0（支持 MCP、Tool Calling、Advisor、多模型）
+- 大模型 API：兼容 OpenAI 接口（可使用天翼 AI 星辰大模型、DeepSeek、通义千问等）
+- 向量数据库：Milvus 或 Qdrant（本地 Docker 运行）
+- 文档解析：Apache Tika + PDFBox + Apache POI
+- 数据库：PostgreSQL 14+（存储任务、智能体日志、反馈数据）
+- 消息队列：RabbitMQ 或 Redis Stream（用于智能体间异步通信）
+- 缓存：Redis（Prompt 缓存、会话缓存）
+- 前端（可选）：仅提供 REST API，或简单 Thymeleaf 测试界面
+
+## 3. 系统架构与核心模块
+
+### 3.1 智能体定义（共5个专职Agent）
+
+| Agent名称 | 职责 | 输入 | 输出 | 所需工具 |
+|----------|------|------|------|----------|
+| 协调者Agent (Orchestrator) | 接收用户自然语言请求，拆解为子任务，调度其他Agent | 用户消息+历史对话 | 任务计划（JSON） | 无外部工具，使用 ReAct 规划 |
+| 条款抽取Agent (ClauseExtractor) | 从合同文档（PDF/Word）中提取结构化条款 | 文档二进制流 | 条款列表（条款名+文本） | 文档解析工具 |
+| 法规检索Agent (LawRetriever) | 根据关键词或条款语义，检索相关法律法规 | 查询文本 | 法律条文片段+出处 | 向量检索工具 |
+| 风险识别Agent (RiskAnalyzer) | 结合条款和法规，识别风险点并给出等级 | 条款文本+法律条文 | 风险列表（风险描述、等级、原文引用） | LLM（带提示模板） |
+| 修改建议Agent (SuggestionGenerator) | 基于风险输出生成修改后的条款文本 | 原条款+风险描述 | 修改建议（含备选方案） | LLM + 条款模板库 |
+| 报告生成Agent (ReportBuilder) | 汇总所有结果，生成结构化报告（Markdown/PDF） | 任务完整结果 | 报告文件流 | PDF 生成工具 |
+
+### 3.2 多智能体协同协议
+
+- **通信方式**：每个 Agent 实现为 Spring Bean，通过 `@Service` 注册；Orchestrator 使用 `TaskPlan` 对象进行同步调用或异步事件（基于 ApplicationEvent）。
+- **任务计划格式**：
+```json
+{
+  "taskId": "uuid",
+  "steps": [
+    { "stepId": 1, "agent": "ClauseExtractor", "input": { "documentUrl": "..." } },
+    { "stepId": 2, "agent": "LawRetriever", "dependsOn": [1], "input": { "query": "竞业限制" } },
+    ...
+  ]
+}

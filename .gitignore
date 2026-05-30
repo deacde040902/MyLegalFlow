@@ -1,0 +1,62 @@
+# Maven
+AI_LegalFlow-backend/target/
+AI_LegalFlow-backend/pom.xml.tag
+AI_LegalFlow-backend/pom.xml.releaseBackup
+AI_LegalFlow-backend/pom.xml.versionsBackup
+AI_LegalFlow-backend/pom.xml.next
+AI_LegalFlow-backend/release.properties
+AI_LegalFlow-backend/dependency-reduced-pom.xml
+AI_LegalFlow-backend/buildNumber.properties
+AI_LegalFlow-backend/.mvn/timing.properties
+AI_LegalFlow-backend/.mvn/wrapper/maven-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+*.swp
+*.bak
+*.tmp
+*~.nib
+
+# Node.js / Vue
+AI_LegalFlow-frontend/node_modules/
+AI_LegalFlow-frontend/dist/
+AI_LegalFlow-frontend/.local
+AI_LegalFlow-frontend/.vite
+AI_LegalFlow-frontend/*.log
+AI_LegalFlow-frontend/npm-debug.log*
+AI_LegalFlow-frontend/yarn-debug.log*
+AI_LegalFlow-frontend/yarn-error.log*
+AI_LegalFlow-frontend/pnpm-debug.log*
+AI_LegalFlow-frontend/package-lock.json
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.ctxt
+.mtj.tmp/
+hs_err_pid*
+
+# Spring Boot
+AI_LegalFlow-backend/logs/
+AI_LegalFlow-backend/application-local.yml
+
+# Database
+*.db
+*.h2.db
+
+# Sensitive files
+*.env
+*.secret
+application-prod.yml

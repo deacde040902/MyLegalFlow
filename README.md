@@ -145,7 +145,6 @@ spring:
 
 ### 合同风险分析
 <img width="1252" height="855" alt="image" src="https://github.com/user-attachments/assets/a1d6d464-ec2e-466c-a8eb-564fd85e1cea" />
-![Uploading image.png…]()
 
 ### 知识库
 ![Uploading image.png…]()

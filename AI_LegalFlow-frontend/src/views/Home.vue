@@ -5,7 +5,7 @@
       <p class="text-gray-300">基于多智能体协同的法律工作流系统</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
       <div class="bg-white rounded-xl p-6 border border-gray-300">
         <img src="/src/resources/picture/L-legalFlow.png" alt="法律问答" class="w-12 h-12 mb-4" />
         <h3 class="text-lg font-semibold text-gray-900 mb-2">法律问答</h3>
@@ -21,15 +21,6 @@
         <p class="text-gray-600 text-sm">收录各类法律法规、合同条款和案例</p>
         <router-link to="/knowledge" class="mt-4 inline-flex items-center text-black hover:text-gray-600 text-sm font-medium">
           浏览知识库 →
-        </router-link>
-      </div>
-
-      <div class="bg-white rounded-xl p-6 border border-gray-300">
-        <img src="/src/resources/picture/L_mission.png" alt="任务管理" class="w-12 h-12 mb-4" />
-        <h3 class="text-lg font-semibold text-gray-900 mb-2">任务管理</h3>
-        <p class="text-gray-600 text-sm">管理合同审查和法律分析任务</p>
-        <router-link to="/tasks" class="mt-4 inline-flex items-center text-black hover:text-gray-600 text-sm font-medium">
-          查看任务 →
         </router-link>
       </div>
     </div>

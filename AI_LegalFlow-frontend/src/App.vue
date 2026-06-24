@@ -65,16 +65,14 @@ const currentPath = computed(() => route.path)
 const menuItems = [
   { name: 'Home', path: '/', label: '首页', icon: 'home' },
   { name: 'QA', path: '/qa', label: '法律问答', icon: 'message' },
-  { name: 'Knowledge', path: '/knowledge', label: '知识库', icon: 'knowledge' },
-  { name: 'Tasks', path: '/tasks', label: '任务管理', icon: 'mission' }
+  { name: 'Knowledge', path: '/knowledge', label: '知识库', icon: 'knowledge' }
 ]
 
 const getIconPath = (iconName) => {
   const iconMap = {
     'home': '/src/resources/picture/L-legalFlow.png',
     'message': '/src/resources/picture/L_message.png',
-    'knowledge': '/src/resources/picture/L_knowleage.png',
-    'mission': '/src/resources/picture/L_mission.png'
+    'knowledge': '/src/resources/picture/L_knowleage.png'
   }
   return iconMap[iconName] || '/src/resources/picture/L-legalFlow.png'
 }
